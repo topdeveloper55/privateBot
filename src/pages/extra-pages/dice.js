@@ -83,7 +83,7 @@ const Dice = () => {
             if (count >= playNumber) {
               clearInterval(interval);
             }
-          }, 40);
+          }, 1000);
         }, 2000);
       }
     }
