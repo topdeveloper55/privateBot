@@ -75,7 +75,6 @@ const Hilo = () => {
     setUserToken(event.target.value);
   }
   const autoPlay = (data) => {
-    console.log('data---->', data._id);
     socketRef.current.send(
       JSON.stringify({
         id: '9dafaba2-98c7-11ee-b9d1-0242ac120002',
@@ -147,12 +146,10 @@ const Hilo = () => {
         if (response.payload.errors && response.payload.errors[0].message === 'INSUFFICIENT_FUNDS_ERROR')
           toast('Not enough BCH', { hideProgressBar: false, autoClose: 2000, type: 'error' });
         else if (response.payload.data) {
-          console.log('====================>', response.payload.data);
           playId = response.payload.data.playHilo._id;
           autoPlay({ playId: playId, pick: 'LowerOrSame' });
         }
       } else if (response.id === '9dafaba2-98c7-11ee-b9d1-0242ac120002' && response.payload) {
-        console.log('-------->', response.payload);
         withdrow(playId);
       } else if (response.id === 'fe8f2dbe-e253-436a-b06d-c60cee770fcf' && response.payload) {
         if (response.payload.errors) {
@@ -164,7 +161,6 @@ const Hilo = () => {
           miniPlay();
         }
       } else {
-        console.log('response =>', response);
       }
     };
     return () => {
