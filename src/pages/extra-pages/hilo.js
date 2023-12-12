@@ -102,7 +102,7 @@ const Hilo = () => {
             type: 'subscribe'
           })
         );
-      }, 2000);
+      }, 500);
       counter++;
   };
   const getString = (array) => {
@@ -158,7 +158,7 @@ const Hilo = () => {
         if (response.payload.errors) {
           setTimeout(() => {
             miniPlay();
-          }, 10000);
+          }, 2000);
         } else {
           setPlayData((prevPlayData) => [...prevPlayData, { username: username, data: response.payload.data.hiloCashout }]);
           miniPlay();
